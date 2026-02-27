@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>기본 정보</legend>
+            <br>
+            <lebel for="userId">아이디: </lebel>
+            <input type="text" id="userId" name="userId" minlength="4" maxlength="12">
+            <br>
+            <label>비밀번호: </label>
+            <input type="password" name="userPwd">
+            <br>
+            <label>이메일: </label>
+            <input type="email" name="email">
+            <br>
+        </fieldset>
+
+        <fieldset>
+            <legend>추가 정보</legend>
+            <br>
+            <label>직업: </label>
+            <select name="job">
+                <option value="select">선택하세요</option>
+                <option value="st">학생</option>
+                <option value="co">회사원</option>
+                <option value="se">자영업자</option>
+                <option value="pr">전문직</option>
+                <option value="etc">기타</option>
+            </select>
+            <br><br>
+            <label>관심분야: </label>
+            <br>
+            <input type="checkbox" id="music" value="음악" name="interasting" multiple>
+            <label for="music">음악</label>
+            <input type="checkbox" id="movie" value="영화" name="interasting" multiple>
+            <label for="movie">영화</label>
+            <input type="checkbox" id="book" value="독서" name="interasting" multiple>
+            <label for="book">독서</label>
+            <input type="checkbox" id="workout" value="운동" name="interasting" multiple>
+            <label for="workout">운동</label>
+            <input type="checkbox" id="travel" value="여행" name="interasting" multiple>
+            <label for="travel">여행</label>
+            <br><br>
+        </fieldset>
+        <fieldset>
+            <legend>자기소개</legend>
+            <br>
+            <label>자기소개: </label>
+            <br>
+            <textarea cols="100" rows="10"></textarea>
+            <br><br>
+            <label>프로필 사진 첨부: </label>
+            <input type="file" name="uploadFile">
+            <br><br>
+        </fieldset>
+        <br>
+        <form action="search" method="get">
+            <button type="join">가입하기</button>
+            <button type="retry">다시 작성</button>
+        </form>
+</body>
+
+</html>
