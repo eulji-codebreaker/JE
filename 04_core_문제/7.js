@@ -15,10 +15,9 @@ const fireCar={
 };
 
 Object.setPrototypeOf(fireCar,car);
-console.log(Object.getPrototypeOf(car));
+console.log(Object.getPrototypeOf(firecar));
 
 for(let prop in fireCar){
-
     let isOwn = fireCar.hasOwnProperty(prop); //자신의 프로퍼티인지 확인하는 거
 
     if(isOwn){

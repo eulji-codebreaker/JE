@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border-radius: 5px;
+            border: 1px solid gray;
+
+            width: 200px;
+
+            display: flex;
+
+            align-items: center;
+            padding: 30px;
+            margin-bottom: 10px;
+            
+        }
+
+        #box2 {
+            border-radius: 5px;
+            border: 1px solid gray;
+
+            width: 200px;
+
+            display: flex;
+
+            align-items: center;
+            padding: 30px;
+        }
+
+        #result {
+            margin: 10px;
+
+        }
+        button{
+            background-color: blue;
+            color: white;
+            width: 200px;
+            height: 50px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">첫 번째 박스입니다.</div>
+    <div id="box2">두 번째 박스입니다.</div>
+
+    <div id="result">여기에 메시지가 표시됩니다.</div>
+
+    <button onclick="click1()">첫번째 박스 선택</button>
+    <button onclick="click2()">두번째 박스 선택</button>
+    <button onclick="click3()">메시지 선택</button>
+
+
+    <script>
+        function click1() {
+            const $box1=document.getElementById("box1");
+            $box1.innerText="첫번째 박스를 찾았습니다";
+            $box1.style.backgroundColor = "pink";
+        }
+
+        function click2() {
+            const $box2=document.getElementById("box2");
+            $box2.innerText="두번째 박스를 찾았습니다";
+            $box2.style.backgroundColor = "yellow";
+        }
+
+        function click3() {
+            const $result=document.getElementById("result");
+            $result.textContent="ID로 요소를 성공적으로 찾았습니다.";
+            $result.style.fontSize="20px";
+            $result.style.fontWeight="bold";
+            $result.style.color="blue"
+    
+
+        }
+    </script>
+
+</body>
+
+</html>

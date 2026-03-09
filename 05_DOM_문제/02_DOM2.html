@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border-radius: 5px;
+            border: 1px solid gray;
+
+            width: 300px;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            margin-bottom: 10px;
+            
+        }
+        button{
+            background-color: blue;
+            color: white;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <p>첫 번째 문단입니다.</p>
+    <p>두 번째 문단입니다.</p>
+    <p>세 번째 문단입니다.</p>
+    
+    <ul>
+        <li>첫 번째 목록</li>
+        <li>두 번째 목록</li>
+        <li>세 번째 목록</li>
+        <li>네 번째 목록</li>
+    </ul>
+
+    <button onclick="allK()">모든 문단 선택</button>
+    <button onclick="allM()">모든 목록 선택</button>
+    <button onclick="first()">첫 번째 문단만 선택</button>
+
+    <script>
+        function allK(){
+            var p=document.getElementsByTagName("p");
+            for(var i=0; i<p.length; i++){
+                p[i].innerHTML="선택된 문단"+(i+1);
+                p[i].style.backgroundColor="yellow";
+               
+            }
+        }     
+        
+        function allM(){
+            const $list=Array.from(document.getElementsByTagName('li'));
+            $list.forEach((li,idx)=>{ //(li,idx)로 index까지 접근
+            li.innerText="선택된 문단" + (idx+1);
+            li.style.color="blue";
+            li.style.fontWeight="bold";
+      })
+    }
+      function first(){
+            var p=document.getElementsByTagName("p");
+                p[0].innerHTML="첫번째 문단만 선택되었습니다!.";
+                p[0].style.backgroundColor="green";
+             
+        } 
+        
+    </script>
+</body>
+</html>
+
+

@@ -10,9 +10,9 @@
 const user = {
    name : "gildong",
    age : 20,
-   email:"hong@gmail.com"
+   
 };
-
+user.email="hong@gmail.com";
 user.age=21;
 delete user.name;
 console.log(user);
