@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigbox1 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            margin: 30px;
+        }
+
+        .bigbox2 {
+            width: 300px;
+            height: 300px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            margin: 30px;
+        }
+
+        .bigbox3 {
+            width: 300px;
+            height: 150px;
+            border: 2px solid orange;
+            border-radius: 10px;
+            margin: 30px;
+        }
+
+        #title {
+            display: flex;
+            font-size: 30px;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+
+        .box {
+            background-color: pink;
+            border: 1px solid plum;
+            width: 250px;
+            height: 50px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-left: 25px;
+            align-content: center;
+
+        }
+
+        .special {
+            background-color: yellow;
+            border: 1px solid greenyellow;
+
+        }
+
+        ul li {
+            padding: 10px;
+            margin: 5px 0;
+
+        }
+
+        .Mspectial {
+            background-color: yellow;
+
+        }
+
+        input {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;   
+            width: 350px;      
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bigbox1">
+        <b id="title">제목 영역</b>
+        <p class="box">첫 번째 박스</p>
+        <div class="box special">두 번째 박스 (특별)</div>
+        <div class="box">세 번째 박스</div>
+    </div>
+
+    <div class="bigbox2">
+        <ul>
+            <li>첫 번째 목록</li>
+            <li class="special">두 번째 목록(특별)</li>
+            <li>세 번째 목록</li>
+            <li>네 번째 목록</li>
+        </ul>
+    </div>
+    <div class="bigbox3">
+        <input type="text" placeholder="텍스트 입력">
+        <input type="email" placeholder="이메일 입력">
+        <button>일반 버튼</button>
+    </div>
+    <div class="container">
+        <button onclick="selectID()">ID로 선택</button>
+        <button onclick="selectClass()">클래스로 선택</button>
+        <button onclick="selectTag()">태그로 선택</button>
+        <button onclick="selectSpClass()">특별클래스로 선택</button>
+        <button onclick="selectFirst()">첫 번째만 선택</button>
+        <button onclick="selectAllBox()">모든 박스 선택</button>
+        <button onclick="selectSelctor()">복합 선택자</button>
+        <button onclick="selectField()">입력 필드 선택</button>
+    </div>
+
+    
+
+    <script>
+        function selectID() {
+            var title = document.querySelector("#title");
+            title.style.fontSize = "20px";
+            title.innerHTML = "ID로 선택된 제목!";
+            title.style.fontWeight = "bold";
+            title.style.color = "red";
+        }
+        function selectClass() {
+            var box = document.querySelector(".box");
+            box.innerHTML = "클래스로 선택된 첫 번째 박스!";
+
+        }
+
+        function selectTag() {
+            var ptag = document.querySelector("p");
+            ptag.innerHTML = "태그로 선택된 첫 번째 p요소!";
+        }
+
+        function selectSpClass() {
+            var spe = document.querySelectorAll(".special");
+            for (var i = 0; i < spe.length; i++) {
+                spe[i].innerHTML = "특별클래스" + (i + 1);
+                spe[i].style.fontWeight = "bold";
+            }
+        }
+
+        function selectFirst() {
+            var first = document.querySelector(".bigbox1 .box");
+            first.innerHTML = "첫번째 컨테이너의 첫 번째 박스!";
+        }
+
+        function selectAllBox() {
+            var all = document.querySelectorAll(".box");
+            for (var i = 0; i < all.length; i++) {
+                all[i].innerHTML = "모든 박스 " + (i + 1) + "번 변경"
+            }
+        }
+
+        function selectSelctor() {
+
+            var sel = document.querySelectorAll(".bigbox1 .box:not(.special)");
+
+            for (var i = 0; i < sel.length; i++) {
+                sel[i].innerHTML = "복합 선택자로 선택됨";
+                sel[i].style.border = "5px dashed darkgreen"; 
+                sel[i].style.backgroundColor="yellowgreen";
+            }
+        }
+
+        function selectField(){
+            var text=document.querySelector('input[type="text"]');
+            var email=document.querySelector('input[type="email"]');
+            text.value="querySelector로 설정된 값";
+            text.style.backgroundColor="yellow";
+            email.value="test@example.con"
+            email.style.backgroundColor="gray";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1, .box2{
+            background-color: plum;
+            width: 500px;
+            height: 50px;
+            border: 2px solid gray;
+            display: flex;
+            border-radius: 5px;
+            
+            align-items: center;
+            padding: 30px;
+            margin-bottom: 10px;
+           
+            
+        }
+
+        .box3{
+            background-color: yellow;
+            width: 500px;
+            height: 50px;
+            border: 2px solid yellowgreen;
+            display: flex;
+            border-radius: 5px;
+
+            align-items: center;
+            padding: 30px;
+            margin-bottom: 10px;
+        }
+
+        .item{
+            width: 300px;
+            background-color: cornflowerblue;
+            margin: 5px;
+            border-left: 4px solid blue;
+           
+        }
+
+        button{
+            background-color: blue;
+            color: white;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            margin: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">첫번째 박스</div>
+    <div class="box2">두번째 박스</div>
+    <div class="box3">세번째 박스(하이라이트)</div>
+
+    <div class="item">첫 번째 아이템</div>
+    <div class="item">두 번째 아이템</div>
+    <div class="item">세 번째 아이템</div>
+    <div class="item">네 번째 아이템</div>
+    
+    <p class="highlight">하이라이트 된 문단입니다.</p>
+
+    <button onclick="selectBox()">모든 박스 선택</button>
+    <button onclick="selectItem()">모든 아이템 선택</button>
+    <button onclick="selectHighlight()">하이라이트 요소들 선택</button>
+
+    <script>
+        function selectBox(){
+            var box1=document.getElementsByClassName("box1")[0];
+            var box2=document.getElementsByClassName("box2")[0];
+            var box3=document.getElementsByClassName("box3")[0];
+            box1.style.backgroundColor = "pink";
+            box2.style.backgroundColor = "pink";
+            box3.style.backgroundColor = "pink"; //foreach를 사용하면 간략하게 가능
+        
+        }
+
+        function selectItem(){
+            for(i=0;i<4;i=i+1){
+                var item=document.getElementsByClassName("item")[i];
+            item.style.backgroundColor="yellowgreen";
+            item.style.borderLeftColor="green";
+            }
+        }
+
+        function selectHighlight(){
+            var box3=document.getElementsByClassName("box3")[0];
+            box3.style.backgroundColor = "pink";
+            box3.style.fontWeight = "bold";
+            
+            box3.textContent="세 번째 박스(하이라이트) (수정됨)";
+
+            var highlight=document.getElementsByClassName("highlight")[0];
+            highlight.style.backgroundColor = "pink";
+            highlight.style.fontWeight = "bold";
+            highlight.textContent="하이라이트된 문단입니다.(수정됨)";
+        }        
+    </script>
+</body>
+</html>

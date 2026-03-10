@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: pink;
+            border: 2px solid black;
+            width: 600px;
+            padding: 20px;
+        }
+
+        .box{
+            background-color: white;
+            border: 2px solid blue;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+           
+        }
+
+        button{
+            width: 150px;
+            height:50px;
+        }
+        .newbox{
+            background-color: yellow;
+            border: 2px solid red;
+            width: 100%;
+
+        }
+
+         button{
+            width: 150px;
+            height:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box" id="box">
+            <span>기존자식1</span>
+            <span>기존자식2</span>
+        </div>
+        <p>다른 형제 요소</p>
+    </div>
+    <button onclick="before()">before() 테스트</button>
+    <button onclick="after()">after() 테스트</button>
+    <button onclick="prepend()">prepend() 테스트</button>
+    <button onclick="append()">append() 테스트</button>
+    <button onclick="appendChild()">appendChild() 테스트</button>
+    <button onclick="insertMe()">문자열 삽입 테스트</button>
+    
+
+    <script>
+        function before(){
+            const box=document.getElementById("box");
+            const newEle=document.createElement("div");
+            newEle.textContent="before()로 추가된 요소";
+            newEle.className="newbox";
+
+            box.before(newEle);
+        }
+
+        function after(){
+            const box=document.getElementById("box");
+            const newEle=document.createElement("div");
+            newEle.textContent="after()로 추가된 요소";
+            newEle.className="newbox";
+
+            
+            box.after(newEle);
+
+        }
+
+        function prepend(){
+            const box=document.getElementById("box");
+            const newEle=document.createElement("div");
+            newEle.textContent="prepend()로 추가된 요소";
+            newEle.className="newbox";
+
+            box.prepend(newEle);
+
+        }
+
+        function append(){
+            const box=document.getElementById("box");
+            const newEle=document.createElement("div");
+            newEle.textContent="append()로 추가된 요소";
+            newEle.className="newbox";
+
+            box.append(newEle);
+
+        }
+        function appendChild() {
+            const box = document.getElementById("box");
+            const newEle = document.createElement("div");
+            newEle.textContent = "appendChild()로 추가된 요소";
+            newEle.className = "newbox";
+            box.appendChild(newEle);
+        }
+
+        function insertMe() {
+            const box = document.getElementById("box");
+            box.append("append()로 추가된 문자열");
+            box.prepend(123);
+        }
+
+
+    </script>
+</body>
+</html>

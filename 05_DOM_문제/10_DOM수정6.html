@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>remove 예제</title>
+    <style>
+      .item {
+        background: lightblue;
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid blue;
+      }
+      .container {
+        border: 2px solid black;
+        padding: 15px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item" id="item1">삭제할 항목 1</div>
+      <div class="item" id="item2">삭제할 항목 2</div>
+      <div class="item" id="item3">삭제할 항목 3</div>
+      <div class="item" id="item4">삭제할 항목 4</div>
+    </div>
+
+    <button onclick="removeFirst()">첫 번째 삭제</button>
+    <button onclick="removeSecond()">두 번째 삭제</button>
+    <button onclick="removeThird()">세 번째 삭제</button>
+    <button onclick="removeLast()">마지막 삭제</button>
+
+    <script>
+        function removeFirst(){
+            item1.remove(); //firstElementChild.remove(); 해보기 // notion보다 내 코드가 짧은데 한번 알아보기
+        }
+        function removeSecond(){
+            item2.remove();
+        }
+        function removeThird(){
+            item3.remove();
+        }
+        function removeLast(){
+            item4.remove();
+        }
+    </script>
+  </body>
+</html>

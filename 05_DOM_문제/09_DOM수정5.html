@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 2px solid blue;
+            width: 600px;
+        }
+         p{
+            background-color: red;
+            color: white;
+            width: 500px;
+            height: 50px;
+            margin: 10px;
+            align-content: center;
+        }
+        .new{
+            background: green;
+            color:white;
+            padding: 5px;
+            margin:3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="container">
+        <p id="target1">교체될 자식1</p>
+        <p id="target2">교체될 자식2</p>
+        <p id="target3">교체될 자식3</p>
+    </div>
+    <button onclick="first()">첫 번째 교체</button>
+    <button onclick="second()">두 번째 교체</button>
+    <button onclick="third()">세 번째 교체</button>
+
+    <script>
+        function first(){
+            const container = document.getElementById("container");
+            const parent=document.getElementById("target1");
+            const child=document.createElement("div");
+
+            child.textContent="새로운 첫 번째 자식";
+            child.className="new";
+
+            container.replaceChild(child,parent);
+        }
+        
+        function second(){
+            const container = document.getElementById("container");
+            const parent=document.getElementById("target2");
+            const child=document.createElement("span");
+
+            child.textContent="새로운 두 번째 자식";
+            child.className="new";
+
+            container.replaceChild(child,parent);
+        }
+
+        function third(){
+            const container = document.getElementById("container");
+            const parent=document.getElementById("target3");
+            const child=document.createElement("h2");
+
+            child.textContent="새로운 세 번째 자식";
+            child.className="new";
+
+            container.replaceChild(child,parent);
+        }
+    </script>
+</body>
+
+</html>

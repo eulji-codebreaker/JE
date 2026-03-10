@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: red;
+            color: white;
+            width: 500px;
+            height: 50px;
+            margin: 10px;
+            align-content: center;
+        }
+        .new{
+            background-color: green;
+            color:white;
+            width: 500px;
+            height: 50px;
+            margin: 10px;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="target1">교체될 요소1</p>
+    <p id="target2">교체될 요소2</p>
+    <p id="target3">교체될 요소3</p>
+    <button onclick="newEle()" >요소로 교체</button>
+    <button onclick="newText()">텍스트로 교체</button>
+    <button onclick="newHTML()"">HTML로 교체</button>
+
+    <script>
+        function newEle(){
+            const target=document.getElementById("target1");
+            const newEle=document.createElement("div");
+            newEle.textContent="새로운 요소로 교체됨 "
+            newEle.className="new";
+
+            target.replaceWith(newEle);
+        }
+        function newText(){
+            const target=document.getElementById("target2");
+            target.replaceWith("단순텍스트로 교체"); // 팀장님은 2줄, innerText와 replaceWith 사용하심
+        }
+
+        function newHTML(){
+            const target=document.getElementById("target3");
+            const newEle=document.createElement("div");
+            newEle.innerHTML="<strong>HTML 요소로 교체됨</strong>";
+            newEle.className="new";
+
+            target.replaceWith(newEle);
+        }
+    </script>
+</body>
+</html>

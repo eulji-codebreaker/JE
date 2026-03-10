@@ -52,7 +52,6 @@
             for(var i=0; i<p.length; i++){
                 p[i].innerHTML="선택된 문단"+(i+1);
                 p[i].style.backgroundColor="yellow";
-               
             }
         }     
         
@@ -65,10 +64,9 @@
       })
     }
       function first(){
-            var p=document.getElementsByTagName("p");
+            var p=document.getElementsByTagName("p"); //document.querySelector로 하면 첫번째 요소만 가져올 수 있다.
                 p[0].innerHTML="첫번째 문단만 선택되었습니다!.";
                 p[0].style.backgroundColor="green";
-             
         } 
         
     </script>
