@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>사용자 입력 양식 이벤트 연습하기</h1>
+    <form name="memberjoin">
+
+        <label for="username">이름</label>
+        <input type="text" name="username" id="username" value="이름을 입력하세요">
+        <input type="email" name="email" id="email" value="example@domain.com">
+        <br><br>
+
+        <label>성별</label>
+        <input type="radio" name="gender" id="male" value="m" checked><label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="f"><label for="female">여자</label>
+
+        <br><br>
+
+        <label>참여일자 선택</label>
+        <select id="date" name="date">
+            <option value="30">--날짜 선택--</option>
+            <option value="10">2026년 3월 11일</option>
+            <option value="20">2026년 3월 12일</option>
+            <option value="30">2026년 3월 13일</option>
+        </select>
+
+        <br><br>
+
+        <label>요청 사항</label><br>
+        <textarea name="introduce" id="introduce" rows="5" cols="30" 
+        style="resize: none;">요청사항을 입력하세요!</textarea><br>
+        <span>0</span>/500자
+
+        <br><br>
+        <input type="checkbox"> <b> 개인정보 수집에 동의합니다</b>
+        <input type="submit" value="제출">
+    </form>
+</body>
+</html>
