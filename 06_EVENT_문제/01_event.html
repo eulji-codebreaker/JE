@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .dateFocus {
+            background-color: pink;
+            border: 3px dotted black;
+        }
+
+        .agreeActive {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
 </head>
+
 <body>
-   <h1>사용자 입력 양식 이벤트 연습하기</h1>
+    <h1>사용자 입력 양식 이벤트 연습하기</h1>
     <form name="memberjoin">
 
-        <label for="username">이름</label>
-        <input type="text" name="username" id="username" value="이름을 입력하세요">
-        <input type="email" name="email" id="email" value="example@domain.com">
+        <label for="username">이름: </label>
+        <input type="text" name="username" id="username" placeholder="이름을 입력하세요"><br>
+        <label for="email">이메일: </label>
+        <input type="email" name="email" id="email" placeholder="example@domain.com">
         <br><br>
 
         <label>성별</label>
@@ -22,7 +36,7 @@
 
         <label>참여일자 선택</label>
         <select id="date" name="date">
-            <option value="30">--날짜 선택--</option>
+            <option value="0">--날짜 선택--</option>
             <option value="10">2026년 3월 11일</option>
             <option value="20">2026년 3월 12일</option>
             <option value="30">2026년 3월 13일</option>
@@ -31,13 +45,77 @@
         <br><br>
 
         <label>요청 사항</label><br>
-        <textarea name="introduce" id="introduce" rows="5" cols="30" 
-        style="resize: none;">요청사항을 입력하세요!</textarea><br>
+        <textarea name="introduce" id="introduce" rows="5" cols="30" style="resize: none;">요청사항을 입력하세요!</textarea><br>
         <span>0</span>/500자
 
         <br><br>
-        <input type="checkbox"> <b> 개인정보 수집에 동의합니다</b>
-        <input type="submit" value="제출">
+
+        <input type="checkbox" id="agree">
+        <span id="agreeText"><b> 개인정보 수집에 동의합니다</b></span>
     </form>
+
+    <script>
+
+        const $form = document.forms.memberjoin;
+        const $username = document.getElementById("username");
+        const $email = document.getElementById("email");
+        const $date = document.getElementById("date");
+        const $agree = document.querySelector("input[type='checkbox']");
+
+        $form.addEventListener("submit", function (e) {
+
+            // 이름 검사
+            if ($username.value.trim() === "") {
+                alert("이름을 입력하세요");
+                $username.focus();
+                e.preventDefault();
+                return;
+            }
+
+            // 이메일 검사
+            if ($email.value.trim() === "") {
+                alert("이메일을 입력하세요");
+                $email.focus();
+                e.preventDefault();
+                return;
+            }
+
+            if (!$email.value.includes("@")) {
+                alert("@를 포함한 이메일을 입력하세요");
+                $email.focus();
+                e.preventDefault();
+                return;
+            }
+
+            // 날짜 검사
+            if ($date.value === "0") {
+                alert("참여 일자를 선택해주세요");
+                e.preventDefault();
+                return;
+            }
+
+            // 개인정보 동의 검사
+            if (!$agree.checked) {
+                alert("개인정보 수집에 동의해주세요");
+                e.preventDefault();
+                return;
+            }
+
+        });
+        const $agreeText = document.getElementById("agreeText");
+
+        $date.addEventListener("focus", function () {
+            $date.classList.add("dateFocus");
+        });
+
+        $agree.addEventListener("change", function () {
+            if ($agree.checked) {
+                $agreeText.classList.add("agreeActive");
+            } else {
+                $agreeText.classList.remove("agreeActive");
+            }
+        });
+    </script>
 </body>
+
 </html>
